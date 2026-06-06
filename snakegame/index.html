@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snake Game Pro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Start Screen -->
+<div id="startScreen" class="screen">
+  <h1>🐍 Snake Game</h1>
+  <p>Select Difficulty</p>
+  <button onclick="startGame('easy')">Easy</button>
+  <button onclick="startGame('medium')">Medium</button>
+  <button onclick="startGame('hard')">Hard</button>
+</div>
+
+<!-- Game Screen -->
+<div class="game-container hidden">
+  <h2>Score: <span id="score">0</span> | High: <span id="highScore">0</span></h2>
+
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- Mobile Controls -->
+  <div class="mobile-controls">
+    <button onclick="setDirection('UP')">⬆</button>
+    <div>
+      <button onclick="setDirection('LEFT')">⬅</button>
+      <button onclick="setDirection('DOWN')">⬇</button>
+      <button onclick="setDirection('RIGHT')">➡</button>
+    </div>
+  </div>
+
+  <div>
+    <button onclick="togglePause()" id="pauseBtn">Pause</button>
+    <button onclick="goToMenu()">⬅ Back</button>
+  </div>
+</div>
+
+<!-- Game Over -->
+<div id="gameOverScreen" class="screen hidden">
+  <h1>Game Over</h1>
+
+  <p>Your Score: <span id="finalScore"></span></p>
+
+  <h3>High Scores</h3>
+  <p>Easy: <span id="easyScore"></span></p>
+  <p>Medium: <span id="mediumScore"></span></p>
+  <p>Hard: <span id="hardScore"></span></p>
+  <p>Best: <span id="globalBest"></span></p>
+
+  <button onclick="restartGame()">Restart</button>
+  <button onclick="goToMenu()">Menu</button>
+</div>
+
+<audio id="eatSound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-mechanical-bling-210.wav"></audio>
+<audio id="gameOverSound" src="https://assets.mixkit.co/sfx/preview/mixkit-player-losing-or-failing-2042.wav"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
